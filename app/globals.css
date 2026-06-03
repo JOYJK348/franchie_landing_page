@@ -1,0 +1,249 @@
+@import "tailwindcss";
+
+:root {
+  --isml-blue: #0b4ea2;
+  --isml-cyan: #16a6c9;
+  --isml-accent: #00b8d9;
+  --ink: #0f172a;
+  --muted: #64748b;
+  --paper: #ffffff;
+  --soft: #f7fafc;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+.container {
+  width: min(1180px, calc(100% - 32px));
+  margin: 0 auto;
+}
+
+.blue-gradient-text {
+  background: linear-gradient(90deg, var(--isml-blue), var(--isml-accent));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.section-pad {
+  padding: 88px 0;
+}
+
+.soft-shadow {
+  box-shadow: 0 22px 55px rgba(15, 23, 42, 0.1);
+}
+
+.color-card {
+  border: 1px solid rgba(11, 78, 162, 0.12);
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.88), rgba(255, 255, 255, 0.72)),
+    linear-gradient(135deg, #e9fbff 0%, #fff7ed 100%);
+  box-shadow: 0 18px 42px rgba(15, 23, 42, 0.08);
+}
+
+.color-card:nth-child(2n) {
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.88), rgba(255, 255, 255, 0.72)),
+    linear-gradient(135deg, #eef2ff 0%, #ecfeff 100%);
+  border-color: rgba(22, 166, 201, 0.18);
+}
+
+.color-card:nth-child(3n) {
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.88), rgba(255, 255, 255, 0.72)),
+    linear-gradient(135deg, #f0fdf4 0%, #eff6ff 100%);
+  border-color: rgba(34, 197, 94, 0.16);
+}
+
+.color-card:nth-child(4n) {
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.88), rgba(255, 255, 255, 0.72)),
+    linear-gradient(135deg, #fff7ed 0%, #f0f9ff 100%);
+  border-color: rgba(245, 158, 11, 0.18);
+}
+
+.color-card:hover {
+  box-shadow: 0 24px 56px rgba(11, 78, 162, 0.14);
+}
+
+.student-review-marquee {
+  position: relative;
+  overflow: hidden;
+  padding: 8px 0 18px;
+}
+
+.student-review-marquee::before,
+.student-review-marquee::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  z-index: 2;
+  width: 72px;
+  height: 100%;
+  pointer-events: none;
+}
+
+.student-review-marquee::before {
+  left: 0;
+  background: linear-gradient(90deg, #ffffff 0%, rgba(255, 255, 255, 0) 100%);
+}
+
+.student-review-marquee::after {
+  right: 0;
+  background: linear-gradient(270deg, #ffffff 0%, rgba(255, 255, 255, 0) 100%);
+}
+
+.student-review-track {
+  display: flex;
+  width: max-content;
+  gap: 20px;
+  animation: student-review-scroll 42s linear infinite;
+}
+
+.student-review-marquee:hover .student-review-track {
+  animation-play-state: paused;
+}
+
+.student-review-card {
+  width: 340px;
+  min-height: 275px;
+  flex: 0 0 340px;
+}
+
+@keyframes student-review-scroll {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(calc(-50% - 10px));
+  }
+}
+
+@media (max-width: 768px) {
+  .student-review-marquee::before,
+  .student-review-marquee::after {
+    width: 34px;
+  }
+
+  .student-review-track {
+    gap: 14px;
+    animation-duration: 36s;
+  }
+
+  .student-review-card {
+    width: min(82vw, 330px);
+    min-height: 255px;
+    flex-basis: min(82vw, 330px);
+  }
+}
+
+.premium-card {
+  border: 1px solid rgba(11, 78, 162, 0.1);
+  background: rgba(255, 255, 255, 0.92);
+  box-shadow: 0 18px 45px rgba(15, 23, 42, 0.08);
+}
+
+.premium-card.color-card {
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.86), rgba(255, 255, 255, 0.68)),
+    linear-gradient(135deg, #e9fbff 0%, #fff7ed 100%);
+}
+
+.hero-grid {
+  background-image:
+    linear-gradient(rgba(11, 78, 162, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(11, 78, 162, 0.06) 1px, transparent 1px);
+  background-size: 42px 42px;
+}
+
+@media (max-width: 768px) {
+  .section-pad {
+    padding: 64px 0;
+  }
+}
+
+/* CTA section creative styles */
+.cta-section {
+  background: linear-gradient(180deg, #0B4EA2 0%, #083b7a 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.cta-wave {
+  position: absolute;
+  top: -1px;
+  left: 0;
+  width: 100%;
+  pointer-events: none;
+}
+
+.feature-card {
+  min-width: 200px;
+  background: rgba(255,255,255,0.06);
+  border-radius: 10px;
+  padding: 16px 22px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: #fff;
+  font-weight: 700;
+  box-shadow: 0 6px 18px rgba(3, 37, 76, 0.12);
+}
+
+.feature-icon {
+  display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:8px;background:rgba(255,255,255,0.08);
+}
+
+.cta-buttons .primary {
+  padding: 14px 22px;
+  font-size: 16px;
+}
+
+.cta-buttons .secondary {
+  padding: 12px 20px;
+  border: 2px solid rgba(255,255,255,0.18);
+  background: transparent;
+  color: #fff;
+}
+
+/* Reset default heading top margins that can cause gaps */
+section h1,
+section h2,
+section h3,
+section p {
+  margin-top: 0;
+}
+
+section {
+  overflow: hidden;
+}
+
+/* Prevent fixed bottom Apply button from overlapping the footer */
+footer {
+  padding-bottom: 5rem !important;
+}
+
+/* Ensure a clear gap between the last section and the footer to avoid overlap */
+main > section:last-child {
+  margin-bottom: 40px;
+}
