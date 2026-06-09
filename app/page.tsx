@@ -5,7 +5,6 @@ import {
   ArrowRight,
   ArrowUp,
   Award,
-  BadgeCheck,
   Banknote,
   BookOpen,
   BriefcaseBusiness,
@@ -48,12 +47,6 @@ const navItems = [
 ];
 
 const heroStats = ["10+ Centres", "20,000+ Students", "French", "German", "Japanese"];
-
-const languages = [
-  { label: "French", flag: "FR", color: "#0B4EA2" },
-  { label: "German", flag: "DE", color: "#111827" },
-  { label: "Japanese", flag: "JP", color: "#C1121F" }
-];
 
 const foreignLanguageCards = [
   { title: "Study Abroad", text: "Access universities in France, Germany and Japan.", icon: Plane },
@@ -142,14 +135,6 @@ const journey: IconTuple[] = [
   ["Signing of MOU", Handshake],
   ["Initiation of Operations", Sparkles],
   ["Scale Up", LineChart]
-];
-
-const modelSteps: IconTuple[] = [
-  ["Partner", Handshake],
-  ["Infrastructure & Commercial Space", Building2],
-  ["ISML Operations", Headphones],
-  ["Student Enrolments", Users],
-  ["Revenue Sharing", Banknote]
 ];
 
 const targetStates = [
@@ -946,7 +931,7 @@ export default function Home() {
           <motion.div {...fadeUp()}>
             <p className="mb-3 text-sm font-bold uppercase tracking-[0.18em] text-center text-[#16A6C9]">Limited state expansion</p>
             <h2 className="text-2xl font-black md:text-3xl text-center mb-2">Limited State Expansion Opportunities</h2>
-            <p className="text-center text-slate-600 mb-8 text-lg">We're strategically expanding across India with carefully selected partners</p>
+            <p className="text-center text-slate-600 mb-8 text-lg">We&apos;re strategically expanding across India with carefully selected partners</p>
             <div className="mt-8 grid grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-4">
               {targetStates.map((state) => (
                 <span key={state} className="rounded-lg bg-gradient-to-br from-[#E9FBFF] to-[#F7FAFC] px-4 py-3 text-center text-sm font-bold text-[#0B4EA2] flex items-center justify-center gap-2 border border-cyan-100 hover:border-cyan-300 transition">
