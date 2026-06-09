@@ -1228,12 +1228,59 @@ export default function Home() {
             {showSuccessModal ? (
               <motion.div
                 role="status"
-                initial={{ opacity: 0, y: 12 }}
-                animate={{ opacity: 1, y: 0 }}
-                className="mt-5 rounded-md border border-emerald-200 bg-emerald-50 px-5 py-4 text-center"
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.9 }}
+                transition={{ duration: 0.3, ease: "easeOut" }}
+                className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/40 backdrop-blur-sm"
               >
-                <p className="text-base font-black text-emerald-800">Thank you for contacting us.</p>
-                <p className="mt-1 text-sm font-semibold text-emerald-700">Our team will contact you soon.</p>
+                <motion.div
+                  className="relative w-full max-w-md rounded-2xl bg-white shadow-2xl overflow-hidden"
+                  initial={{ y: 20 }}
+                  animate={{ y: 0 }}
+                >
+                  {/* Top accent bar */}
+                  <div className="h-1.5 bg-gradient-to-r from-[#0B4EA2] via-[#16A6C9] to-[#5CE1E6]" />
+                  
+                  {/* Content */}
+                  <div className="p-8 text-center">
+                    {/* Success Icon */}
+                    <motion.div
+                      className="mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-full bg-[#E9FBFF]"
+                      initial={{ scale: 0 }}
+                      animate={{ scale: 1 }}
+                      transition={{ delay: 0.2, type: "spring", stiffness: 200 }}
+                    >
+                      <svg className="h-8 w-8 text-[#16A6C9]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+                        <polyline points="20 6 9 17 4 12"></polyline>
+                      </svg>
+                    </motion.div>
+
+                    {/* Message content */}
+                    <div className="mb-6">
+                      <p className="text-lg leading-relaxed text-[#64748B]">
+                        Thank you for your interest in
+                      </p>
+                      <p className="mt-2 text-2xl font-black bg-gradient-to-r from-[#0B4EA2] via-[#16A6C9] to-[#5CE1E6] bg-clip-text text-transparent">
+                        ISML Synergy Pro
+                      </p>
+                      <p className="mt-4 text-lg leading-relaxed text-[#64748B]">
+                        Our team will review your application and contact you shortly to discuss the opportunity, location suitability, and next steps. 🚀
+                      </p>
+                    </div>
+
+                    {/* Close button */}
+                    <motion.button
+                      onClick={() => setShowSuccessModal(false)}
+                      whileHover={{ scale: 1.02 }}
+                      whileTap={{ scale: 0.98 }}
+                      className="w-full inline-flex items-center justify-center gap-2 rounded-lg bg-gradient-to-r from-[#0B4EA2] to-[#16A6C9] px-6 py-3 text-sm font-bold text-white shadow-lg shadow-blue-900/20 transition hover:shadow-xl hover:shadow-blue-900/30"
+                    >
+                      Got It
+                      <ArrowRight size={16} />
+                    </motion.button>
+                  </div>
+                </motion.div>
               </motion.div>
             ) : null}
           </motion.form>
