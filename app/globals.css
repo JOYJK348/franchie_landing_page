@@ -119,14 +119,66 @@ textarea {
   animation: student-review-scroll 42s linear infinite;
 }
 
+.client-logo-scroll {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(15, 23, 42, 0.2) transparent;
+}
+
+.client-logo-scroll::-webkit-scrollbar {
+  width: 8px;
+}
+
+.client-logo-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.client-logo-scroll::-webkit-scrollbar-thumb {
+  background: rgba(15, 23, 42, 0.16);
+  border-radius: 9999px;
+}
+
+.client-logo-scroll::-webkit-scrollbar-thumb:hover {
+  background: rgba(15, 23, 42, 0.24);
+}
+
+.clients-marquee {
+  overflow: hidden;
+  position: relative;
+}
+
+.clients-track {
+  display: grid;
+  grid-auto-flow: column;
+  grid-template-rows: repeat(2, minmax(0, 1fr));
+  align-items: center;
+  gap: 1rem;
+  width: max-content;
+  padding-bottom: 0.5rem;
+  will-change: transform;
+  animation: scroll-logos 30s linear infinite;
+}
+
+.clients-track:hover {
+  animation-play-state: paused;
+}
+
+@keyframes scroll-logos {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(calc(-50% - 0.5rem));
+  }
+}
+
 .student-review-marquee:hover .student-review-track {
   animation-play-state: paused;
 }
 
 .student-review-card {
   width: 340px;
-  min-height: 275px;
   flex: 0 0 340px;
+  align-self: flex-start;
 }
 
 @keyframes student-review-scroll {
@@ -140,20 +192,13 @@ textarea {
 }
 
 @media (max-width: 768px) {
-  .student-review-marquee::before,
-  .student-review-marquee::after {
-    width: 34px;
-  }
-
-  .student-review-track {
-    gap: 14px;
-    animation-duration: 36s;
+  .student-review-marquee {
+    padding-bottom: 24px;
   }
 
   .student-review-card {
-    width: min(82vw, 330px);
-    min-height: 255px;
-    flex-basis: min(82vw, 330px);
+    width: min(85vw, 340px);
+    flex-basis: min(85vw, 340px);
   }
 }
 
@@ -178,7 +223,7 @@ textarea {
 
 @media (max-width: 768px) {
   .section-pad {
-    padding: 64px 0;
+    padding: 32px 0;
   }
 }
 
